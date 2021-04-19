@@ -4,7 +4,7 @@
         "removeComments": true,
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
+        "allowJs": false,
         "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
@@ -17,6 +17,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "noEmit": false,
+        "declaration": false,
         "jsx": "react",
         "baseUrl": "."
     },
@@ -29,8 +30,8 @@
         "jest.config.js",
         "postcss.config.js",
         ".svgrrc.js",
-        "style.mock.js",
-        "file.mock.js",
+        "src/__mocks__/style.mock.js",
+        "src/__mocks__/file.mock.js",
         "tools/bundle-analyzer.js",
         "__mocks__/**/*.ts",
         "typings.d.ts"
