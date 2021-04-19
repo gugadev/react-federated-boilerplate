@@ -10,7 +10,7 @@ export const App = (): JSX.Element => (
         <div className={styles.content}>
             <h2 className={styles.subtitleH2}>So, What's included?</h2>
 
-            <p className={styles.paragraph}>
+            <div className={styles.paragraph}>
                 <h3 className={styles.subtitleH3}>Loaders</h3>
                 <ul className={styles.list}>
                     <li>style-loader</li>
@@ -19,9 +19,9 @@ export const App = (): JSX.Element => (
                     <li>@svgr/webpack</li>
                     <li>file-loader</li>
                 </ul>
-            </p>
+            </div>
 
-            <p className={styles.paragraph}>
+            <div className={styles.paragraph}>
                 <h3 className={styles.subtitleH3}>Plugins</h3>
                 <ul className={styles.list}>
                     <li>teser-webpack-plugin</li>
@@ -30,9 +30,9 @@ export const App = (): JSX.Element => (
                     <li>clean-webpack-plugin</li>
                     <li>html-webpack-plugin</li>
                 </ul>
-            </p>
+            </div>
 
-            <p className={styles.paragraph}>
+            <div className={styles.paragraph}>
                 <h3 className={styles.subtitleH3}>Other features</h3>
                 <ul className={styles.list}>
                     <li>foco font</li>
@@ -43,7 +43,7 @@ export const App = (): JSX.Element => (
                     <li>lighthouse</li>
                     <li>sonnarqube</li>
                 </ul>
-            </p>
+            </div>
         </div>
     </div>
 );
