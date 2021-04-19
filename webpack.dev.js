@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
-
 const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { merge } = require("webpack-merge");
 
@@ -13,7 +13,7 @@ module.exports = merge(common, {
     devtool: "inline-source-map",
     entry: common.entry,
     devServer: {
-        contentBase: "./www",
+        contentBase: "./build",
         watchContentBase: true,
         publicPath: "/",
         compress: true,
@@ -24,10 +24,20 @@ module.exports = merge(common, {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, "public/**/*"),
-                    to: path.resolve(__dirname, "www/"),
+                    from: "./**/*",
+                    context: path.resolve(__dirname, "public"),
+                    globOptions: {
+                        dot: true,
+                        gitignore: true,
+                        force: true,
+                        ignore: ["**/index.html"],
+                    },
                 },
             ],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "./index.html",
+            template: "./public/index.html",
         }),
         new CleanWebpackPlugin(),
     ],

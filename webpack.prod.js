@@ -39,8 +39,13 @@ module.exports = merge(common, {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, "public/*"),
-                    to: path.resolve(__dirname, "build"),
+                    from: "./**/*",
+                    context: path.resolve(__dirname, "public"),
+                    globOptions: {
+                        dot: true,
+                        gitignore: true,
+                        force: true,
+                    },
                 },
             ],
         }),
