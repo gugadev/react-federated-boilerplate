@@ -3,13 +3,16 @@
 const { resolve } = require("path");
 const Dotenv = require("dotenv-webpack");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 const paths = {
     source: resolve(__dirname, "src"),
 };
 
+const deps = require("./package.json").dependencies;
+
 module.exports = {
-    entry: resolve(paths.source, "index.tsx"),
+    entry: resolve(paths.source, "index.ts"),
     output: {
         filename: "[name].js",
         publicPath: "/",
@@ -23,10 +26,15 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.bootstrap.tsx?$/,
+                use: ["bundle-loader", "ts-loader"],
+            },
+            {
                 test: /\.ts(x)?$/,
                 use: ["ts-loader"],
                 exclude: [/node_modules/],
             },
+
             {
                 test: /\.svg?$/,
                 use: ["@svgr/webpack"],
@@ -67,5 +75,33 @@ module.exports = {
             },
         ],
     },
-    plugins: [new Dotenv()],
+    plugins: [
+        new Dotenv(),
+        new ModuleFederationPlugin({
+            name: "libraryName",
+            library: {
+                type: "var",
+                name: "libraryName",
+            },
+            filename: "remoteEntry.js",
+            remotes: {
+                // what remotes you're using
+            },
+            exposes: {
+                // all components you wanna expose. Eg.
+                container: "./src/app.tsx",
+            },
+            shared: {
+                ...deps,
+                react: {
+                    singleton: true,
+                    requiredVersion: deps.react,
+                },
+                "react-dom": {
+                    singleton: true,
+                    requiredVersion: deps["react-dom"],
+                },
+            },
+        }),
+    ],
 };
