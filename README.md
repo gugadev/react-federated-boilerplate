@@ -17,7 +17,7 @@ Basic React template for use with Webpack Federation Modules.
 - dotenv-plugin
 - clean-plugin
 
-## What else is included?
+## Other features
 
 - _foco_ font
 - material design icons.
@@ -26,8 +26,3 @@ Basic React template for use with Webpack Federation Modules.
 - prettier
 - lighthouse
 - sonnarqube
-
-## What I need to add?
-
-Well, you just need to add a `images` folder inside `public` one. This folder must have a `favicon.ico` and a `logo-small.png` files.
-

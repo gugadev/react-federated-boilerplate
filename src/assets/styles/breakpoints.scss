@@ -1,0 +1,41 @@
+@mixin device-xs {
+    @media screen and (max-width: var(--breakpoint-sm)) {
+        @content;
+    }
+}
+
+@mixin device-sm {
+    @media screen and (min-width: var(--breakpoint-sm)) {
+        @content;
+    }
+}
+
+@mixin device-md {
+    @media screen and (min-width: var(--breakpoint-md)) {
+        @content;
+    }
+}
+
+@mixin device-lg {
+    @media screen and (min-width: var(--breakpoint-lg)) {
+        @content;
+    }
+}
+
+@mixin device-xl {
+    @media screen and (min-width: var(--breakpoint-xl)) {
+        @content;
+    }
+}
+
+@mixin device-xxl {
+    @media screen and (min-width: var(--breakpoint-xxl)) {
+        @content;
+    }
+}
+
+@mixin device-at($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}

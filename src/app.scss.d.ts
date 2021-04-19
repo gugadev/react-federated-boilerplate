@@ -2,6 +2,14 @@
 // Please do not change this file!
 interface CssExports {
   'container': string;
+  'content': string;
+  'list': string;
+  'logo': string;
+  'paragraph': string;
+  'separator': string;
+  'subtitleH2': string;
+  'subtitleH3': string;
+  'title': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

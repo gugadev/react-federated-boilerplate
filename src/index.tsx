@@ -1,6 +1,9 @@
-import React, { render } from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+
 import { App } from "src/app";
+import "src/assets/styles/variables.scss";
 
 const injectionNode = document.getElementById("app");
 
-render(<App />, injectionNode);
+ReactDOM.render(<App />, injectionNode);

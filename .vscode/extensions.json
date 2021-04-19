@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "wix.vscode-import-cost",
+        "aaron-bond.better-comments",
+        "mikestead.dotenv",
+        "rafamel.subtle-brackets",
+        "visualstudioexptteam.vscodeintellicode",
+        "esbenp.prettier-vscode",
+        "msjsdiag.debugger-for-chrome",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "firsttris.vscode-jest-runner",
+        "sonarsource.sonarlint-vscode",
+        "webhint.vscode-webhint"
+    ]
+}

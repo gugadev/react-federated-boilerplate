@@ -21,20 +21,21 @@ module.exports = merge(common, {
             }),
         ],
     },
-    externals: {
-        react: {
-            commonjs: "react",
-            commonjs2: "react",
-            amd: "React",
-            root: "React",
-        },
-        "react-dom": {
-            commonjs: "react-dom",
-            commonjs2: "react-dom",
-            amd: "ReactDOM",
-            root: "ReactDOM",
-        },
-    },
+    // use it only if you are planning to publish aslibrary
+    // externals: {
+    //     react: {
+    //         commonjs: "react",
+    //         commonjs2: "react",
+    //         amd: "React",
+    //         root: "React",
+    //     },
+    //     "react-dom": {
+    //         commonjs: "react-dom",
+    //         commonjs2: "react-dom",
+    //         amd: "ReactDOM",
+    //         root: "ReactDOM",
+    //     },
+    // },
     plugins: [
         new CopyPlugin({
             patterns: [
