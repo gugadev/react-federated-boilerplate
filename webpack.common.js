@@ -3,6 +3,7 @@
 const { resolve } = require("path");
 const Dotenv = require("dotenv-webpack");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const { TuneDtsPlugin } = require("@efox/emp-tune-dts-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 
 const paths = {
@@ -15,7 +16,7 @@ module.exports = {
     entry: resolve(paths.source, "index.ts"),
     output: {
         filename: "[name].js",
-        publicPath: "/",
+        publicPath: "http://localhost:3000",
         path: resolve(__dirname, "build"),
         libraryTarget: "umd",
     },
@@ -102,6 +103,12 @@ module.exports = {
                     requiredVersion: deps["react-dom"],
                 },
             },
+        }),
+        new TuneDtsPlugin({
+            output: resolve(__dirname, "build", "index.d.ts"),
+            path: resolve(__dirname, "build"),
+            name: "index.d.ts",
+            isDefault: true,
         }),
     ],
 };
